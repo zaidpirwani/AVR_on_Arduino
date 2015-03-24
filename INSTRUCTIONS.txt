@@ -1,0 +1,42 @@
+Connect Arduino to your Computer and make sure that the correct drivers are installed.
+
+Open Device Manager
+--> Right Click My Computer
+--> Select Manage
+--> Click on Device Manager
+
+If Arduino Board is correctly installed, a SERIAL COM PORT will be visible.
+
+Note down the COM PORT Number.
+
+Open Atmel Studio
+--> Create a NEW Project
+--> Type: GCC C Executable Project
+--> Select the CORRECT Microcontroller - ATMEGA328p for Arduino Uno/Nano - ATMEGA2560 or 1280 for Arduino Mega.
+
+Click on Project, in the Menu Bar
+--> Select Properties (last item) - Alt+F7
+--> Click on Build Events
+--> Copy the below command in the POST-BUILD EVENT COMMAND LINE BOX
+C:\AoA\avrdude -p atmega328p -c arduino -P COM3 -b 57600 -D -U flash:w:$(AssemblyName).hex:i
+
+*   See Atmel Studio SCREENSHOT in the AoA Folder
+**  Some Arduino Drivers are provided in the AoA Folder for your convenience
+*** For the Above command to work, you MUST copy the Folder, "AoA" in your C Drive - otherwise edit the command as necessary.
+****Figure out the COMPORT number of Arduino on your computer - change the above COM3 to the CORRECT port number.
+
+--> Save and Close the Project properties Window
+
+--> in the main source code file of your project, add in the first line:
+#define F_CPU 16000000UL
+
+--> Write your program as normal AVR Program using C code and when you press Build, it will try to UPLOAD the code to the Arduino Board as well.
+
+
+In case of any ERROR or PROBLEM, kindly email me at zaidpirwani@ejaad.com.pk
+
+Mention your OS, how the error occured and also a snapshot of the Error.
+
+---------------------------
+THIS WAS TESTED ON WINDOWS 7 - 32-bit with ATMEL STUDIO 6.2
+---------------------------

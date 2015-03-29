@@ -11,6 +11,7 @@ Note down the COM PORT Number.
 
 Open Atmel Studio
 --> Create a NEW Project
+------> Do NOT put spaces in the PROJECT NAME, use _(underscore) or -(dash)
 --> Type: GCC C Executable Project
 --> Select the CORRECT Microcontroller - ATMEGA328p for Arduino Uno/Nano - ATMEGA2560 or 1280 for Arduino Mega.
 
@@ -31,7 +32,7 @@ C:\AoA\avrdude -p atmega328p -c arduino -P COM3 -b 57600 -D -U flash:w:$(Assembl
 #define F_CPU 16000000UL
 
 --> Write your program as normal AVR Program using C code and when you press Build, it will try to UPLOAD the code to the Arduino Board as well.
-
+-----> The Arduino Board, MUST be connected to the computer.
 
 In case of any ERROR or PROBLEM, kindly email me at zaidpirwani@ejaad.com.pk
 

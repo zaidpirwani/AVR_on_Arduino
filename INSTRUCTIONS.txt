@@ -21,6 +21,9 @@ Click on Project, in the Menu Bar
 --> Copy the below command in the POST-BUILD EVENT COMMAND LINE BOX
 C:\AoA\avrdude -p atmega328p -c arduino -P COM3 -b 57600 -D -U flash:w:$(AssemblyName).hex:i
 
+***** IF using Arduino MEGA, replace "-c arduino" with
+"-c wiring"
+
 *   See Atmel Studio SCREENSHOT in the AoA Folder
 **  Some Arduino Drivers are provided in the AoA Folder for your convenience
 *** For the Above command to work, you MUST copy the Folder, "AoA" in your C Drive - otherwise edit the command as necessary.
